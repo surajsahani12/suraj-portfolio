@@ -7,6 +7,7 @@ import {
   Mail,
   Github,
   Linkedin,
+  Code,
   MapPin,
   Zap,
 } from "lucide-react";
@@ -137,6 +138,7 @@ export default function Hero() {
           {[
             { icon: Github, href: personalInfo.github, label: "GitHub" },
             { icon: Linkedin, href: personalInfo.linkedin, label: "LinkedIn" },
+            { icon: Code, href: personalInfo.leetcode, label: "LeetCode" },
           ].map(({ icon: Icon, href, label }) => (
             <a
               key={label}
