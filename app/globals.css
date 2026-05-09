@@ -1,0 +1,274 @@
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #080d17;
+  --bg-secondary: #0d1424;
+  --bg-card: #0f1929;
+  --bg-border: #1e293b;
+  --accent-blue: #38bdf8;
+  --accent-blue-dim: #0284c7;
+  --accent-indigo: #818cf8;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #475569;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #1e293b #080d17;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: #080d17;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #38bdf8;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: "DM Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Grid background */
+.grid-bg {
+  background-image: linear-gradient(
+      rgba(56, 189, 248, 0.04) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Gradient text — primary blue */
+.gradient-text-orange {
+  background: linear-gradient(135deg, #38bdf8, #60a5fa, #93c5fd);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gradient text — secondary indigo */
+.gradient-text-cyan {
+  background: linear-gradient(135deg, #818cf8, #a5b4fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Section tag */
+.section-tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #38bdf8;
+}
+
+/* Card styles */
+.card-base {
+  background: linear-gradient(135deg, #0f1929 0%, #0d1424 100%);
+  border: 1px solid #1e293b;
+  border-radius: 1rem;
+  transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-base:hover {
+  border-color: rgba(56, 189, 248, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(56, 189, 248, 0.07);
+}
+
+/* Noise overlay */
+.noise::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+/* Primary button — sky blue */
+.btn-primary {
+  background: #38bdf8;
+  color: #080d17;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 0 0 rgba(56, 189, 248, 0);
+}
+.btn-primary:hover {
+  background: #0ea5e9;
+  color: #fff;
+  box-shadow: 0 0 30px rgba(56, 189, 248, 0.35);
+  transform: translateY(-2px);
+}
+
+/* Secondary button */
+.btn-secondary {
+  background: transparent;
+  color: #f1f5f9;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  border: 1px solid #1e293b;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.btn-secondary:hover {
+  border-color: rgba(56, 189, 248, 0.4);
+  background: rgba(56, 189, 248, 0.06);
+  transform: translateY(-2px);
+}
+
+/* Tag chip — blue */
+.tag-chip {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 0.375rem;
+  background: rgba(56, 189, 248, 0.08);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.18);
+  white-space: nowrap;
+}
+
+/* Tag chip — indigo */
+.tag-chip-cyan {
+  background: rgba(129, 140, 248, 0.08);
+  color: #818cf8;
+  border-color: rgba(129, 140, 248, 0.18);
+}
+
+/* Timeline line */
+.timeline-line::before {
+  content: "";
+  position: absolute;
+  left: 1.25rem;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, #38bdf8, transparent);
+}
+
+/* Scroll progress bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #38bdf8, #818cf8);
+  z-index: 9999;
+  transform-origin: left;
+}
+
+/* Animated underline */
+.animated-underline {
+  position: relative;
+}
+.animated-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #38bdf8;
+  transition: width 0.3s ease;
+}
+.animated-underline:hover::after {
+  width: 100%;
+}
+
+/* Hero glow */
+.hero-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    rgba(56, 189, 248, 0.1) 0%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Input styles */
+.form-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid #1e293b;
+  border-radius: 0.75rem;
+  padding: 0.875rem 1.25rem;
+  color: #f1f5f9;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.925rem;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  outline: none;
+}
+.form-input:focus {
+  border-color: rgba(56, 189, 248, 0.5);
+  background: rgba(56, 189, 248, 0.03);
+}
+.form-input::placeholder {
+  color: #475569;
+}
+
+/* Skill bar */
+@keyframes slideIn {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+/* Section transitions */
+.section-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+/* Mobile nav */
+@media (max-width: 768px) {
+  .mobile-nav-open {
+    overflow: hidden;
+  }
+}
+
+/* Selection */
+::selection {
+  background: rgba(56, 189, 248, 0.25);
+  color: #fff;
+}
