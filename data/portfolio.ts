@@ -454,8 +454,8 @@ export const achievements = [
   },
 
   {
-    icon: "Container",
-    metric: "Dockerized",
+    icon: "Component",
+    metric: "10%",
     label: "Deployments",
     desc: "Production Linux + Nginx deployment workflows",
   },
